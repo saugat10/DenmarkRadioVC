@@ -31,7 +31,9 @@
     <h1>List of music</h1>
     <div id="app">
         <input placeholder="Title" type="text" v-model="title">
-        <button v-on:click="filterByTitle(title)" class="btn btn-primary">Filter Title</button> 
+        <button v-on:click="filterByTitle(title)" class="btn btn-primary">Filter Title</button> <br><br>
+        <input placeholder="Artist" type="text" v-model="artist">
+        <button v-on:click="filterByArtist(artist)" class="btn btn-primary">Filter Artist</button> <br><br>
         <table class="table table-striped">
             <thead>
                 <tr>

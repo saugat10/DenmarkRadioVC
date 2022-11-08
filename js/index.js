@@ -32,6 +32,11 @@ Vue.createApp({
             console.log("Title: "+title)
             this.filteredMusic = this.music.filter(t => t.title.includes(title))
             console.log("Music: "+this.music)
+        },
+        filterByArtist(artist) {
+            console.log("Artist: "+ artist)
+            this.filteredMusic = this.music.filter(t => t.artist.includes(artist))
+            console.log("Music: "+this.music)
         }
     }
 }).mount("#app")
