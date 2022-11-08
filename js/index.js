@@ -7,7 +7,9 @@ Vue.createApp({
             error: null,
             filteredMusic : [],
             addData: {title: "", artist: "", duration: null, publicationYear : null },
-            addMessage: ""
+            addMessage: "",
+            deleteId: 0,
+            deleteMessage:""
         }
     },
     async created() {
@@ -45,6 +47,17 @@ Vue.createApp({
                 response = await axios.post(baseUri, this.addData)
                 this.addMessage = "response " + response.status + " " + response.statusText
                 this.getAllPosts()
+            } catch (ex) {
+                alert(ex.message)
+            }
+        },
+        async deletePost(deleteId) {
+            const url = baseUri + "/" + deleteId
+            try {
+                response = await axios.delete(url)
+                this.deleteMessage = response.status + " " + response.statusText
+                this.getAllPosts()
+                
             } catch (ex) {
                 alert(ex.message)
             }
