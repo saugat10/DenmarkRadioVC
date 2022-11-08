@@ -5,7 +5,9 @@ Vue.createApp({
         return {
             music : [],
             error: null,
-            filteredMusic : []
+            filteredMusic : [],
+            addData: {title: "", artist: "", duration: null, publicationYear : null },
+            addMessage: ""
         }
     },
     async created() {
@@ -37,6 +39,15 @@ Vue.createApp({
             console.log("Artist: "+ artist)
             this.filteredMusic = this.music.filter(t => t.artist.includes(artist))
             console.log("Music: "+this.music)
+        },
+        async addMusic() {
+            try {
+                response = await axios.post(baseUri, this.addData)
+                this.addMessage = "response " + response.status + " " + response.statusText
+                this.getAllPosts()
+            } catch (ex) {
+                alert(ex.message)
+            }
         }
     }
 }).mount("#app")
