@@ -30,6 +30,8 @@
 <body>
     <h1>List of music</h1>
     <div id="app">
+        <input placeholder="Title" type="text" v-model="title">
+        <button v-on:click="filterByTitle(title)" class="btn btn-primary">Filter Title</button> 
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -41,7 +43,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="data in music">
+                <tr v-for="data in filteredMusic">
                     <td>{{data.id}}</td>
                     <td>{{data.title}}</td>
                     <td>{{data.artist}}</td>
