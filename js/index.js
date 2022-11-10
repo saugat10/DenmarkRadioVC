@@ -1,4 +1,4 @@
-const baseUri = "https://localhost:7076/api/music"
+const baseUri = "https://denmarkradio20221110105824.azurewebsites.net/api/music"
 
 Vue.createApp({
     data() {
