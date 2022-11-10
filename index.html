@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    <title>Denmark Radio</title>
 </head>
 <style>
     table {
@@ -62,9 +62,9 @@
         <button v-on:click="addMusic()" class="btn btn-success">Add</button>
         <div>{{addMessage}}</div><br><br>
         <h2>Delete</h2>
-        <input v-model.number="deleteId" placeholder="id" type="number" />
-        <button v-on:click="deletePost(deleteId)" class="btn btn-warning">Delete</button>
-        {{deleteMessage}}
+        <input id="deleteInput"v-model.number="deleteId" placeholder="id" type="number" />
+        <button id="deleteButton"v-on:click="deletePost(deleteId)" class="btn btn-warning">Delete</button>
+        <div v-if="deleteMessage.length > 0" id="outputDelete">{{deleteMessage}}</div>
         <br>
         
         <h2>Update Music</h2>
